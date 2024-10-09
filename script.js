@@ -1,13 +1,15 @@
 const form = document.querySelector('#form');
 let error = document.querySelector('.shaking-box')
+let playAgain = document.querySelector('.play-again')
 let g = 0;
 let randomNumber = Math.round(Math.random() * 100)
 console.log(randomNumber)
-    
+
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     let inputElement = document.querySelector('.number-input');
     let numberValue = parseFloat(inputElement.value);
+    let guessBtn = document.querySelector('.guess')
     inputElement.value = '';
     error.style.display = 'none';
     if(numberValue < 1 || numberValue > 100){
@@ -24,7 +26,9 @@ form.addEventListener('submit', (e) => {
         }
         else{
             document.querySelector('.output').innerText = "You Guessed Right";
-
+            inputElement.disabled = true;
+            guessBtn.disabled = true;
+            playAgain.style.display = 'block'
         }
     }
     else{

@@ -114,6 +114,16 @@ body{
         font-size: 18px;
     }
   }
+  .play-again{
+    text-decoration: none;
+    color: #ebe4e4;
+    position: absolute;
+    top: 65%;
+    background-color: #3498db;
+    padding: 0.7rem;
+    border-radius: 6px;
+    display: none;
+  }
   
   @keyframes rotation {
     0% {
