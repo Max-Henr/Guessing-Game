@@ -18,6 +18,7 @@ h1,p{
 }
 p{
     font-size: 22px;
+    text-align: center;
 }
 body{
     background-color: #301934;
@@ -124,6 +125,21 @@ body{
     border-radius: 6px;
     display: none;
   }
+  .mode{
+    all: unset;
+    background-color: #FF0000;
+    color: #ebe4e4;
+    text-align: center;
+    border-radius: 4px;
+    position: absolute;
+    right: 7%;
+    width: 140px;
+    height: 40px;
+    padding: 0.5rem;
+    &:hover{
+      cursor: pointer;
+    }
+  }
   
   @keyframes rotation {
     0% {
@@ -151,8 +167,7 @@ body{
   animation: shake 0.5s;
   animation-iteration-count: infinite;
   position: absolute;
-  top: 0;
-  transform: translate(30% , 0);
+  top: 10%;
   display: none;
 }
 
