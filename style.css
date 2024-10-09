@@ -116,7 +116,7 @@ body{
     }
   }
   .play-again{
-    text-decoration: none;
+    all: unset;
     color: #ebe4e4;
     position: absolute;
     top: 65%;
@@ -124,6 +124,9 @@ body{
     padding: 0.7rem;
     border-radius: 6px;
     display: none;
+    &:hover{
+      cursor: pointer;
+    }
   }
   .mode{
     all: unset;

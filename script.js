@@ -1,7 +1,7 @@
 const form = document.querySelector('#form');
 const mode = document.querySelector('.mode')
+const playAgain = document.querySelector('.play-again')
 let error = document.querySelector('.shaking-box')
-let playAgain = document.querySelector('.play-again')
 let g = 0;
 let i = 0
 let randomNumber = Math.round(Math.random() * 100)
@@ -64,3 +64,7 @@ mode.addEventListener('click', (e) => {
     }
 })
 
+playAgain.addEventListener('click', (e) =>{
+    e.preventDefault()
+    location.reload()
+})
