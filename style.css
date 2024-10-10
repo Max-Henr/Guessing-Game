@@ -157,8 +157,14 @@ body{
     width: 3rem;
     border-radius: 4px;
     padding: 0.4rem 1rem;
-
+    
     position: relative;
+  }
+  li{
+    color: #ebe4e4;
+  }
+  li::marker{
+    content: '';
   }
   .prev-guess::before,
   .prev-guess::after {
