@@ -162,6 +162,8 @@ body{
   }
   li{
     color: #ebe4e4;
+    line-height: 32gitpx;
+    font-size: 24px;
   }
   li::marker{
     content: '';

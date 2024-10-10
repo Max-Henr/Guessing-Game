@@ -51,9 +51,9 @@ form.addEventListener('submit', (e) => {
     }
 })
 
+const prevGuess = document.createElement('ul')
+prevGuess.classList.add('prev-guess')
 function creatPreviousGuess(value){
-    const prevGuess = document.createElement('ul')
-    prevGuess.classList.add('prev-guess')
 
     const guess = document.createElement('li')
     guess.textContent = value
