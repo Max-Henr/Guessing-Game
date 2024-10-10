@@ -1,6 +1,7 @@
 const form = document.querySelector('#form');
 const mode = document.querySelector('.mode')
 const playAgain = document.querySelector('.play-again')
+const prevGuessDiv = document.querySelector('.prev-guesses')
 let error = document.querySelector('.shaking-box')
 let g = 0;
 let i = 0
@@ -10,7 +11,7 @@ console.log(randomNumber)
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-    let inputElement = document.querySelector('.number-input');
+    const inputElement = document.querySelector('.number-input');
     let numberValue = parseFloat(inputElement.value);
     let guessBtn = document.querySelector('.guess')
     inputElement.value = '';
@@ -37,6 +38,8 @@ form.addEventListener('submit', (e) => {
         error.style.display = 'flex';
         return
     }
+    const newGuess = creatPreviousGuess(numberValue)
+    prevGuessDiv.appendChild(newGuess)
     g = g + 1
     document.querySelector('.guesses').innerHTML = g
     i = i + 1
@@ -47,6 +50,20 @@ form.addEventListener('submit', (e) => {
         playAgain.style.display = 'block';
     }
 })
+
+function creatPreviousGuess(value){
+    const prevGuess = document.createElement('div')
+    prevGuess.classList.add('prev-guess')
+
+    const guess = document.createElement('p')
+    guess.textContent = value
+
+    prevGuess.appendChild(guess)
+
+    return prevGuess
+}
+
+
 
 mode.addEventListener('click', (e) => {
     e.preventDefault()
