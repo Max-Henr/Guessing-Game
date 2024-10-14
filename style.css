@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+Oriya:wght@400..700&display=swap');
 @property --gradient-angle {
     syntax: "<angle>";
     initial-value: 0deg;
@@ -8,16 +9,21 @@
     --clr-2: #d65831;
     --clr-3: #FF7043;
   }
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-h1,p{
+  }
+  
+  h1,p{
     color: #C0C0C0;
-}
-p{
-    font-size: 22px;
+    font-family: 'Bebas Neue';
+  }
+  p,span{
+    font-size: 20px;
+    font-family: 'Bebas Neue';
     text-align: center;
 }
 body{
@@ -100,10 +106,14 @@ body{
   }
   .amount-of-guesses{
     background-color: #FF7043;
+    justify-self: center;
     p{
       color: black;
     }
   }
+ .guesses{
+  font-size: 20px !important;
+ }
   .higher-or-lower{
     background-color: #FF7043;
     justify-content: center;

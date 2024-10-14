@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guessing Game</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Serif+Oriya:wght@400..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="shaking-box">Enter a valid number</div>
@@ -20,18 +23,15 @@
         <button class="play-again">Play Again</button>
         <div class="info">
             <div id="clue" class="amount-of-guesses">
-                <p>Guesses made: <span class="guesses">0</span></p>
+                <p>Guesses made <span class="guesses">0</span></p>
             </div>
             <div id="clue" class="higher-or-lower">
                 <span class="output">Make a Guess</span>
             </div>
         </div>
-        <button class="mode">Switch To Hard Mode</button>
+        <button class="mode"><span class="switch">Switch To Hard Mode</span></button>
     </div>
     <div class="prev-guesses">
-        <!-- <div class="prev-guess">
-
-        </div> -->
     </div>
     <script src="/script.js"></script>
 </body>

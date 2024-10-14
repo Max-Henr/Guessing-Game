@@ -7,7 +7,6 @@ let g = 0;
 let i = 0
 let randomNumber = Math.round(Math.random() * 100)
 let hardMode = false
-console.log(randomNumber)
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -16,7 +15,7 @@ form.addEventListener('submit', (e) => {
     let guessBtn = document.querySelector('.guess')
     inputElement.value = '';
     error.style.display = 'none';
-    if(numberValue < 1 || numberValue > 100){
+    if(numberValue < 0 || numberValue > 100){
         error.style.display = 'flex';
         return
     }
@@ -63,22 +62,33 @@ function creatPreviousGuess(value){
     return prevGuess
 }
 
-
+function resetGame(){
+    g = 0;
+    i = 0;
+    randomNumber = Math.round(Math.random() * 100);
+    document.querySelector('.guesses').innerHTML = 0
+    const guessList = document.querySelectorAll('.prev-guess li');
+    guessList.forEach((guessItem) => {
+        guessItem.remove();
+    });
+    prevGuessDiv.innerHTML = '';
+}
 
 mode.addEventListener('click', (e) => {
     e.preventDefault()
     if(hardMode){
-        mode.innerHTML = 'Switch to Hard Mode'
+        document.querySelector('.switch').innerHTML = 'Switch to Hard Mode'
         mode.style.backgroundColor = 'red'
-        document.querySelector('.description').innerHTML = 'Make a guess between 1 - 100'
+        document.querySelector('.description').innerHTML = 'Make a guess between 0 - 100'
         hardMode = false
     }
     else{
-        mode.innerHTML = 'Switch to Easy Mode'
+        document.querySelector('.switch').innerHTML = 'Switch to Easy Mode'
         mode.style.backgroundColor = '#3498db'
-        document.querySelector('.description').innerHTML = 'Make a guess between 1 - 100 </br> you only have 5 tries'
+        document.querySelector('.description').innerHTML = 'Make a guess between 0 - 100 </br> you only have 5 tries'
         hardMode = true
     }
+    resetGame()
 })
 
 playAgain.addEventListener('click', (e) =>{
