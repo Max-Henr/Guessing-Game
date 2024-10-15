@@ -3,6 +3,8 @@ const mode = document.querySelector('.mode')
 const playAgain = document.querySelector('.play-again')
 const prevGuessDiv = document.querySelector('.prev-guesses')
 let error = document.querySelector('.shaking-box')
+const inputElement = document.querySelector('.number-input');
+const guessBtn = document.querySelector('.guess')
 let g = 0;
 let i = 0
 let randomNumber = Math.round(Math.random() * 100)
@@ -10,16 +12,13 @@ let hardMode = false
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-    const inputElement = document.querySelector('.number-input');
     let numberValue = parseFloat(inputElement.value);
-    let guessBtn = document.querySelector('.guess')
-    inputElement.value = '';
     error.style.display = 'none';
-    if(numberValue < 0 || numberValue > 100){
-        error.style.display = 'flex';
-        return
-    }
-    if(!isNaN(numberValue)){
+    const newGuess = creatPreviousGuess(numberValue)
+    prevGuessDiv.appendChild(newGuess)
+    g = g + 1
+    document.querySelector('.guesses').innerHTML = g
+    if(!isNaN(numberValue) && numberValue > -1 && numberValue < 101){
         if(numberValue < randomNumber){
             document.querySelector('.output').innerText = "Higher";
         }
@@ -31,16 +30,13 @@ form.addEventListener('submit', (e) => {
             inputElement.disabled = true;
             guessBtn.disabled = true;
             playAgain.style.display = 'block'
+            return
         }
     }
     else{
         error.style.display = 'flex';
         return
     }
-    const newGuess = creatPreviousGuess(numberValue)
-    prevGuessDiv.appendChild(newGuess)
-    g = g + 1
-    document.querySelector('.guesses').innerHTML = g
     i = i + 1
     if (hardMode && i > 4) {
         document.querySelector('.output').innerText = `Wrong! The number was ${randomNumber}`;
@@ -48,12 +44,13 @@ form.addEventListener('submit', (e) => {
         guessBtn.disabled = true;
         playAgain.style.display = 'block';
     }
+    inputElement.value = '';
 })
 
 const prevGuess = document.createElement('ul')
 prevGuess.classList.add('prev-guess')
 function creatPreviousGuess(value){
-
+    
     const guess = document.createElement('li')
     guess.textContent = value
 
@@ -71,7 +68,13 @@ function resetGame(){
     guessList.forEach((guessItem) => {
         guessItem.remove();
     });
+    inputElement.disabled = false;
+    guessBtn.disabled = false;
+    playAgain.style.display = 'none';
+    document.querySelector('.output').innerText = "Make a Guess";
     prevGuessDiv.innerHTML = '';
+    inputElement.value = '';
+    console.log(randomNumber)
 }
 
 mode.addEventListener('click', (e) => {
@@ -93,5 +96,5 @@ mode.addEventListener('click', (e) => {
 
 playAgain.addEventListener('click', (e) =>{
     e.preventDefault()
-    location.reload()
+    resetGame()
 })
