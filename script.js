@@ -14,11 +14,11 @@ form.addEventListener('submit', (e) => {
     e.preventDefault()
     let numberValue = parseFloat(inputElement.value);
     error.style.display = 'none';
-    const newGuess = creatPreviousGuess(numberValue)
-    prevGuessDiv.appendChild(newGuess)
     g = g + 1
     document.querySelector('.guesses').innerHTML = g
     if(!isNaN(numberValue) && numberValue > -1 && numberValue < 101){
+        const newGuess = creatPreviousGuess(numberValue)
+        prevGuessDiv.appendChild(newGuess)
         if(numberValue < randomNumber){
             document.querySelector('.output').innerText = "Higher";
         }
